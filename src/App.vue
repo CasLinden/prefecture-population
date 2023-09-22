@@ -1,15 +1,19 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div id="app-container">
+    <SiteHeader></SiteHeader>
+    <PopulationFetcher></PopulationFetcher>
+  </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import SiteHeader from "./components/SiteHeader.vue";
+import PopulationFetcher from "./components/PopulationFetcher.vue";
 
 export default {
   name: "App",
   components: {
-    HelloWorld,
+    SiteHeader,
+    PopulationFetcher,
   },
 };
 </script>
