@@ -1,0 +1,11 @@
+[
+    { "name": "北海道", "count": 1 },
+    { "name": "東北", "count": 6 },
+    { "name": "関東", "count": 7 },
+    { "name": "中部", "count": 9 },
+    { "name": "近畿", "count": 7 },
+    { "name": "中国", "count": 5 },
+    { "name": "四国", "count": 4 },
+    { "name": "九州", "count": 8 }
+  ]
+  
