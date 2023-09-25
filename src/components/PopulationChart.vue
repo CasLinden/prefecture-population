@@ -14,6 +14,7 @@ import {
   CategoryScale,
   LinearScale,
   LineElement,
+  Colors,
 } from "chart.js";
 import { Line } from "vue-chartjs";
 
@@ -24,7 +25,8 @@ ChartJS.register(
   Title,
   Tooltip,
   Legend,
-  LineElement
+  LineElement,
+  Colors
 );
 
 export default {

@@ -73,7 +73,6 @@ export default {
               {
                 label: `${prefectures[this.selectedPrefCode - 1].name}`,
                 data: population,
-                borderColor: "rgba(75, 192, 192, 1)",
                 borderWidth: 2,
                 fill: false,
                 prefCode: `${this.selectedPrefCode}`,
@@ -84,7 +83,6 @@ export default {
           this.dataForChart.datasets.push({
             label: `${prefectures[this.selectedPrefCode - 1].name}`,
             data: population,
-            borderColor: "rgba(75, 192, 192, 1)",
             borderWidth: 2,
             fill: false,
             prefCode: `${this.selectedPrefCode}`,
