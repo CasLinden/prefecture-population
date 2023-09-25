@@ -5,8 +5,7 @@
       <PopulationChart :chartData="dataForChart"></PopulationChart>
     </div>
     <div>
-      <PrefectureCheckboxes @prefecture-toggled="handlePrefectureToggled">
-      </PrefectureCheckboxes>
+      <AreaTrays @prefecture-toggled="handlePrefectureToggled"></AreaTrays>
     </div>
   </div>
 </template>
@@ -14,7 +13,7 @@
 <script>
 import prefectures from "@/prefectures.json";
 import PopulationChart from "./PopulationChart.vue";
-import PrefectureCheckboxes from "./PrefectureCheckboxes.vue";
+import AreaTrays from "./AreaTrays.vue";
 
 export default {
   data() {
@@ -98,7 +97,7 @@ export default {
   },
   components: {
     PopulationChart,
-    PrefectureCheckboxes,
+    AreaTrays,
   },
 };
 </script>
