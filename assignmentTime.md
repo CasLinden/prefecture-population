@@ -10,6 +10,9 @@ Chose charting library (chart.js): 15 minutes.
 Added PopulationChart.vue 45 minutes. 
 Added PrefectureCheckboxes 45 minutes. 
 Connected Chart to Checkboxes 45 minutes. 
+Fixed chart size and line graph labels 15 minutes. 
+
+
 
 
 

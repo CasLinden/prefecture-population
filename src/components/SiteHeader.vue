@@ -10,7 +10,9 @@ export default {
 
 <style scoped>
 h1 {
+  margin: 0;
   display: flex;
   justify-content: center;
+  margin: 20px 0px 20px 0px;
 }
 </style>

@@ -9,7 +9,7 @@ import {
   Chart as ChartJS,
   Title,
   Tooltip,
-  // Legend,
+  Legend,
   PointElement,
   CategoryScale,
   LinearScale,
@@ -23,7 +23,7 @@ ChartJS.register(
   PointElement,
   Title,
   Tooltip,
-  // Legend,
+  Legend,
   LineElement
 );
 
@@ -39,7 +39,7 @@ export default {
     return {
       options: {
         responsive: true,
-        maintainAspectRation: false,
+        maintainAspectRatio: false,
       },
     };
   },
@@ -50,9 +50,9 @@ export default {
 </script>
 
 <style scoped>
-@media (max-width: 700px) {
-  #chart-container {
-    height: 50vh;
-  }
+/* @media (max-width: 700px) { */
+#chart-container {
+  height: 40vh;
 }
+/* } */
 </style>

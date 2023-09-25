@@ -71,7 +71,7 @@ export default {
             labels: years,
             datasets: [
               {
-                label: `総人口`,
+                label: `${prefectures[this.selectedPrefCode - 1].name}`,
                 data: population,
                 borderColor: "rgba(75, 192, 192, 1)",
                 borderWidth: 2,
@@ -82,7 +82,7 @@ export default {
           };
         } else {
           this.dataForChart.datasets.push({
-            label: `総人口`,
+            label: `${prefectures[this.selectedPrefCode - 1].name}`,
             data: population,
             borderColor: "rgba(75, 192, 192, 1)",
             borderWidth: 2,
