@@ -55,6 +55,10 @@ export default {
 </script>
 
 <style scoped>
+#chart-container {
+  margin-bottom: 1rem;
+}
+
 /* @media (max-width: 700px) { */
 #chart-container {
   height: 40vh;
