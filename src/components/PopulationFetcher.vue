@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div id="data-display">
+    <div id="display">
       <div id="loading" v-if="loading">読み込み中...</div>
-      <div v-else-if="dataForChart">
+      <div id="display-wrapper" v-else-if="dataForChart">
         <PopulationChart :chartData="dataForChart"></PopulationChart>
       </div>
     </div>
@@ -118,8 +118,31 @@ export default {
 </script>
 
 <style scoped>
-#data-display {
-  min-height: 40vh;
+#display {
+  min-height: 50vh;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+  border-top: 0.1px grey solid;
+  border-bottom: 0.1px grey solid;
+  padding-top: 1rem;
+  padding-bottom: 5rem;
+  margin-bottom: 1rem;
+  background-color: white;
+}
+
+@media screen and (max-width: 768px) {
+  #display {
+    padding-bottom: 2rem;
+    padding-top: 0rem;
+  }
+}
+
+#display-wrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
 }
 
 #loading {

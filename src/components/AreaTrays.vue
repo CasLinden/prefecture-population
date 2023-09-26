@@ -3,6 +3,11 @@
     <div v-for="(area, index) in areas" :key="area.name" class="area-wrapper">
       <div :id="area.name" class="area" @click="toggleTray(area.name)">
         <h2>{{ area.name }}</h2>
+        <div
+          class="menu-icon"
+          :class="{ rotated: showingTrays[area.name] }"
+          v-html="menuUpIcon"
+        ></div>
       </div>
 
       <CheckboxTray
@@ -33,12 +38,13 @@ export default {
       selectedPrefCodes: [1],
       showingTrays: { 北海道: true },
       trayHeights: {},
+      menuUpIcon:
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#" d="M7,15L12,10L17,15H7Z" /></svg>',
     };
   },
   methods: {
     toggleTray(areaName) {
       this.showingTrays[areaName] = !this.showingTrays[areaName];
-      console.log(this.showingTrays);
     },
     calculateStartIndex(index) {
       return this.areas
@@ -64,10 +70,11 @@ h2 {
   margin: 0;
   position: relative;
   z-index: 3;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
 }
 #areas-container {
   display: grid;
+  padding: 0.4rem;
   gap: 5px;
 }
 .area {
@@ -78,6 +85,9 @@ h2 {
   border-radius: 15px;
   position: relative;
   background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* hiding layout under the area wrapper */
@@ -97,6 +107,30 @@ h2 {
   bottom: 0;
   right: 0;
   z-index: 1;
-  background-color: white;
+  background-color: var(--background-grey);
+}
+
+.menu-icon {
+  width: 3rem;
+  height: 3rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+.menu-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.menu-icon.rotated {
+  transform: rotate(180deg);
+}
+
+@media (hover: hover) {
+  .menu-icon.rotatedd:hover {
+    transform: rotate(180deg);
+  }
+  .area:hover .menu-icon {
+    transform: rotate(180deg);
+  }
 }
 </style>

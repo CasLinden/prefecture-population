@@ -55,10 +55,8 @@ export default {
   computed: {
     filteredChartData() {
       if (!this.currentType || !this.chartData.datasets) {
-        console.log("returned because there is no currentType or chartData");
         return this.chartData;
       }
-      console.log(this.chartData.datasets);
       const filteredDatasets = this.chartData.datasets.filter(
         (dataset) => dataset.populationDataType === this.currentType
       );
@@ -83,12 +81,8 @@ export default {
 
 <style scoped>
 #chart-container {
-  margin-bottom: 1rem;
+  position: relative;
+  padding-right: 1rem;
+  padding-left: 1rem;
 }
-
-#chart-container {
-  height: 40vh;
-}
-/* @media (max-width: 700px) { */
-/* } */
 </style>

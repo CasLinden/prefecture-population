@@ -33,15 +33,16 @@ export default {
 
 <style scoped>
 #type-toggle-panel {
-  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
-  margin: 1rem 0 1rem 0;
+  margin: 1rem 0 1.4rem 0;
+  flex-wrap: wrap;
+  padding: 0rem 1rem 0rem 1rem;
 }
 
 .population-type-toggle {
   font-size: 0.8rem;
-  padding: 0.2rem 1rem 0.2rem 1rem;
+  padding: 0.2rem 0.5rem;
   white-space: nowrap;
   color: #aaaaaa;
   border-radius: 15px;
@@ -50,5 +51,11 @@ export default {
 .current-population-type {
   background-color: #ff6384;
   color: white;
+}
+
+@media screen and (min-width: 768px) {
+  #type-toggle-panel {
+    justify-content: center;
+  }
 }
 </style>

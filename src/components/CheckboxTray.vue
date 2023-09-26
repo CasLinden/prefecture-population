@@ -52,7 +52,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  border-radius: 15px;
+  border-radius: 0px 0px 15px 15px;
   z-index: 0;
   position: relative;
 }
@@ -64,28 +64,22 @@ export default {
 }
 
 .slide-enter-active {
-  transition: transform 0.5s ease-in-out, max-height 0.5s ease-in-out;
+  transition: transform 0.3s ease-in-out, max-height 0.3s;
   max-height: 200px;
 }
 
 .slide-leave-active {
-  transition: transform 0.5s ease-in-out, max-height 0.5s ease-in-out;
+  transition: transform 0.3s ease-in-out, max-height 0.3s;
 }
 .slide-enter-from {
-  /* transform: translateY(-100%); */
   max-height: 0px;
-}
-.slide-enter-to {
-  /* transform: translateY(0); */
 }
 
 .slide-leave-to {
   max-height: 0px;
-  /* transform: translateY(0); */
 }
 
 .slide-leave-from {
   max-height: 200px;
-  /* transform: translateY(-100%); */
 }
 </style>
