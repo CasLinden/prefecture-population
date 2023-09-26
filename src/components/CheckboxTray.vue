@@ -49,14 +49,43 @@ export default {
 
 <style>
 .checkbox-tray {
-  overflow: hidden;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  border: 1px solid black;
+  border-radius: 15px;
+  z-index: 0;
+  position: relative;
 }
 
 .prefecture-checkbox {
   margin: 0rem 0.2rem 0rem 0.2rem;
+  font-size: 20px;
+  padding: 4px;
+}
+
+.slide-enter-active {
+  transition: transform 0.5s ease-in-out, max-height 0.5s ease-in-out;
+  max-height: 200px;
+}
+
+.slide-leave-active {
+  transition: transform 0.5s ease-in-out, max-height 0.5s ease-in-out;
+}
+.slide-enter-from {
+  /* transform: translateY(-100%); */
+  max-height: 0px;
+}
+.slide-enter-to {
+  /* transform: translateY(0); */
+}
+
+.slide-leave-to {
+  max-height: 0px;
+  /* transform: translateY(0); */
+}
+
+.slide-leave-from {
+  max-height: 200px;
+  /* transform: translateY(-100%); */
 }
 </style>

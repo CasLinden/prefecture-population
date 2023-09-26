@@ -12,7 +12,7 @@ export default {
 h1 {
   margin: 0;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   margin: 20px 0px 20px 0px;
 }
 </style>

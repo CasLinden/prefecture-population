@@ -1,4 +1,5 @@
 <template>
+  <PopulationTypeToggle></PopulationTypeToggle>
   <div id="chart-container">
     <Line id="chart-canvas" :data="chartData" :options="options" />
   </div>
@@ -17,6 +18,7 @@ import {
   Colors,
 } from "chart.js";
 import { Line } from "vue-chartjs";
+import PopulationTypeToggle from "./PopulationTypeToggle.vue";
 
 ChartJS.register(
   CategoryScale,
@@ -47,6 +49,7 @@ export default {
   },
   components: {
     Line,
+    PopulationTypeToggle,
   },
 };
 </script>
