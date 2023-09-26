@@ -1,7 +1,11 @@
 <template>
-  <PopulationTypeToggle></PopulationTypeToggle>
+  <PopulationTypeToggle @type-changed="onTypeChanged"></PopulationTypeToggle>
   <div id="chart-container">
-    <Line id="chart-canvas" :data="chartData" :options="options" />
+    <Line
+      id="chart-canvas"
+      :data="filteredChartData || null"
+      :options="options"
+    />
   </div>
 </template>
 
@@ -41,15 +45,38 @@ export default {
   },
   data() {
     return {
+      currentType: "総人口",
       options: {
         responsive: true,
         maintainAspectRatio: false,
       },
     };
   },
+  computed: {
+    filteredChartData() {
+      if (!this.currentType || !this.chartData.datasets) {
+        console.log("returned because there is no currentType or chartData");
+        return this.chartData;
+      }
+      console.log(this.chartData.datasets);
+      const filteredDatasets = this.chartData.datasets.filter(
+        (dataset) => dataset.populationDataType === this.currentType
+      );
+
+      return {
+        ...this.chartData,
+        datasets: filteredDatasets,
+      };
+    },
+  },
   components: {
     Line,
     PopulationTypeToggle,
+  },
+  methods: {
+    onTypeChanged(type) {
+      this.currentType = type;
+    },
   },
 };
 </script>
@@ -59,9 +86,9 @@ export default {
   margin-bottom: 1rem;
 }
 
-/* @media (max-width: 700px) { */
 #chart-container {
   height: 40vh;
 }
+/* @media (max-width: 700px) { */
 /* } */
 </style>

@@ -21,6 +21,7 @@ export default {
     };
   },
   methods: {
+    // inform populationChart to filter Data for population data type
     togglePopulationType(type) {
       if (this.currentType === type) return;
       this.currentType = type;
