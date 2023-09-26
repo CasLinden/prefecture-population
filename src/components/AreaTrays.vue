@@ -30,14 +30,15 @@ export default {
     return {
       areas: areas,
       prefectures: prefectures,
-      selectedPrefCodes: [],
-      showingTrays: {},
+      selectedPrefCodes: [1],
+      showingTrays: { 北海道: true },
       trayHeights: {},
     };
   },
   methods: {
     toggleTray(areaName) {
       this.showingTrays[areaName] = !this.showingTrays[areaName];
+      console.log(this.showingTrays);
     },
     calculateStartIndex(index) {
       return this.areas
@@ -72,8 +73,8 @@ h2 {
 .area {
   padding: 0.3rem 0rem 0.3rem 0rem;
   z-index: 2;
-  height: 2.2rem;
-  border: 1px solid black;
+  height: 3rem;
+  border: 1px solid #2c3e50;
   border-radius: 15px;
   position: relative;
   background-color: white;
@@ -90,7 +91,7 @@ h2 {
   position: absolute;
   border-radius: 15px;
   /* height: calc(100% + 5px); */
-  max-height: calc(2.2rem + 5px); /* 2.2 = h2 + area padding */
+  max-height: calc(3.6rem + 5px); /* 2.2 = h2 + area padding */
   top: -5px; /* grid gap on areas-container*/
   left: 0;
   bottom: 0;

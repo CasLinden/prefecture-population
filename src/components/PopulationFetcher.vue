@@ -1,8 +1,10 @@
 <template>
   <div>
-    <div v-if="loading">Loading...</div>
-    <div v-else-if="dataForChart">
-      <PopulationChart :chartData="dataForChart"></PopulationChart>
+    <div id="data-display">
+      <div id="loading" v-if="loading">読み込み中...</div>
+      <div v-else-if="dataForChart">
+        <PopulationChart :chartData="dataForChart"></PopulationChart>
+      </div>
     </div>
     <div>
       <AreaTrays @prefecture-toggled="handlePrefectureToggled"></AreaTrays>
@@ -19,7 +21,7 @@ export default {
   data() {
     return {
       dataForChart: null,
-      selectedPrefCode: null,
+      selectedPrefCode: 1,
       loading: false,
       prefectures,
     };
@@ -105,9 +107,26 @@ export default {
       }
     },
   },
+  mounted() {
+    this.fetchPopulationData();
+  },
   components: {
     PopulationChart,
     AreaTrays,
   },
 };
 </script>
+
+<style scoped>
+#data-display {
+  min-height: 40vh;
+}
+
+#loading {
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 40vh;
+}
+</style>
