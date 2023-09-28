@@ -28,7 +28,7 @@ export default {
 
 :root {
   --dark-steel-blue: #2c3e50;
-  --background-grey: #d3d3d3;
+  --background-grey: #d3d3d2;
 }
 
 body {
