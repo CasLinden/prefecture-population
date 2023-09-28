@@ -41,29 +41,30 @@ export default {
       }
     },
     async fetchPopulationData() {
-      this.loading = true;
-      const apiKey = process.env.VUE_APP_RESAS_KEY;
-      const url = `https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear?prefCode=${this.selectedPrefCode}&cityCode=-`;
-      try {
-        const response = await fetch(url, {
-          headers: {
-            "X-API-KEY": apiKey,
-          },
-        });
+      console.log("doing nothing");
+      // this.loading = true;
+      // const apiKey = process.env.VUE_APP_RESAS_KEY;
+      // const url = `https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear?prefCode=${this.selectedPrefCode}&cityCode=-`;
+      // try {
+      //   const response = await fetch(url, {
+      //     headers: {
+      //       "X-API-KEY": apiKey,
+      //     },
+      //   });
 
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
+      //   if (!response.ok) {
+      //     throw new Error("Network response was not ok");
+      //   }
 
-        const data = await response.json();
-        // immidately prep and update the chart data:
-        const preparedData = this.prepareDataForChart(data);
-        this.updateChartData(preparedData);
-      } catch (error) {
-        console.error("There was a problem with the fetch operation:", error);
-      } finally {
-        this.loading = false;
-      }
+      //   const data = await response.json();
+      //   // immidately prep and update the chart data:
+      //   const preparedData = this.prepareDataForChart(data);
+      //   this.updateChartData(preparedData);
+      // } catch (error) {
+      //   console.error("There was a problem with the fetch operation:", error);
+      // } finally {
+      //   this.loading = false;
+      // }
     },
     prepareDataForChart(data) {
       const populationTypes = [
