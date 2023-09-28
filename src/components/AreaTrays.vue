@@ -122,26 +122,6 @@ h2 {
   cursor: pointer;
 }
 
-/* hiding layout under the area wrapper */
-.area-wrapper {
-  position: relative;
-  transition: height 0.5s ease-in;
-}
-
-.area-wrapper::before {
-  content: "";
-  position: absolute;
-  border-radius: 15px;
-  /* height: calc(100% + 5px); */
-  max-height: calc(3.6rem + 5px); /* 2.2 = h2 + area padding */
-  top: -5px; /* grid gap on areas-container*/
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: 1;
-  background-color: var(--background-grey);
-}
-
 .menu-icon {
   width: 3rem;
   height: 3rem;
