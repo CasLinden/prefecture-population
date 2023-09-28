@@ -27,12 +27,12 @@ export default {
 }
 
 :root {
-  --dark-steel-blue: #2c3e50;
-  --background-grey: #d3d3d2;
+  --main-text-color: #2c3e50;
+  --background-accent: #e9ebed;
 }
 
 body {
-  background-color: var(--background-grey);
+  background-color: var(--background-accent);
 }
 
 #app {
@@ -41,6 +41,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   box-sizing: border-box;
-  color: var(--dark-steel-blue);
+  color: var(--main-text-color);
 }
 </style>

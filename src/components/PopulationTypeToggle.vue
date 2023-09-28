@@ -1,13 +1,14 @@
 <template>
-  <div id="type-toggle-panel">
+  <div id="population-types-container">
     <div
-      v-for="type in populationTypes"
+      v-for="(type, index) in populationTypes"
       :key="type"
       class="population-type-toggle"
       :class="{ 'current-population-type': currentType === type }"
       @click="togglePopulationType(type)"
     >
       {{ type }}
+      <div class="type-range">({{ populationTypeRange[index] }})</div>
     </div>
   </div>
 </template>
@@ -18,6 +19,7 @@ export default {
     return {
       currentType: "総人口",
       populationTypes: ["総人口", "年少人口", "生産年齢人口", "老年人口"],
+      populationTypeRange: ["全年齢", "0-14歳", "15-64歳", "65歳以上"],
     };
   },
   methods: {
@@ -32,7 +34,7 @@ export default {
 </script>
 
 <style scoped>
-#type-toggle-panel {
+#population-types-container {
   display: flex;
   justify-content: space-between;
   margin: 1rem 0 1.4rem 0;
@@ -46,6 +48,7 @@ export default {
   white-space: nowrap;
   color: #aaaaaa;
   border-radius: 15px;
+  cursor: pointer;
 }
 
 .current-population-type {
@@ -54,8 +57,9 @@ export default {
 }
 
 @media screen and (min-width: 768px) {
-  #type-toggle-panel {
+  #population-types-container {
     justify-content: center;
+    gap: 1.5rem;
   }
 }
 </style>

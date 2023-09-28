@@ -1,23 +1,33 @@
 <template>
   <div id="areas-container">
-    <div v-for="(area, index) in areas" :key="area.name" class="area-wrapper">
-      <div :id="area.name" class="area" @click="toggleTray(area.name)">
-        <h2>{{ area.name }}</h2>
-        <div
-          class="menu-icon"
-          :class="{ rotated: showingTrays[area.name] }"
-          v-html="menuUpIcon"
-        ></div>
+    <!-- split areas in half for desktop view -->
+    <div
+      v-for="halfAreas in [firstHalfAreas, secondHalfAreas]"
+      :key="halfAreas[0].name"
+      class="half-of-areas"
+    >
+      <div
+        v-for="(area, index) in halfAreas"
+        :key="area.name"
+        class="area-wrapper"
+      >
+        <div :id="area.name" class="area" @click="toggleTray(area.name)">
+          <h2>{{ area.name }}</h2>
+          <div
+            class="menu-icon"
+            :class="{ rotated: showingTrays[area.name] }"
+            v-html="menuUpIcon"
+          ></div>
+        </div>
+        <CheckboxTray
+          :showTray="showingTrays[area.name]"
+          :area="area"
+          :selectedPrefCodes="selectedPrefCodes"
+          :allPrefectures="prefectures"
+          :startIndex="calculateStartIndex(index, halfAreas)"
+          @prefecture-toggled="updateSelectedPrefCodes"
+        />
       </div>
-
-      <CheckboxTray
-        :showTray="showingTrays[area.name]"
-        :area="area"
-        :selectedPrefCodes="selectedPrefCodes"
-        :allPrefectures="prefectures"
-        :startIndex="calculateStartIndex(index)"
-        @prefecture-toggled="updateSelectedPrefCodes"
-      />
     </div>
   </div>
 </template>
@@ -42,14 +52,27 @@ export default {
         '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#" d="M7,15L12,10L17,15H7Z" /></svg>',
     };
   },
+  computed: {
+    firstHalfAreas() {
+      return this.areas.slice(0, 4);
+    },
+    secondHalfAreas() {
+      return this.areas.slice(4);
+    },
+  },
   methods: {
     toggleTray(areaName) {
       this.showingTrays[areaName] = !this.showingTrays[areaName];
     },
-    calculateStartIndex(index) {
-      return this.areas
+    calculateStartIndex(index, halfAreas) {
+      const isFirstHalf = halfAreas === this.firstHalfAreas;
+      // calculate offset, 0 for first half, should be 23 for second
+      const offset = isFirstHalf
+        ? 0
+        : this.firstHalfAreas.reduce((acc, cur) => acc + cur.count, 0);
+      return halfAreas
         .slice(0, index)
-        .reduce((acc, cur) => acc + cur.count, 0);
+        .reduce((acc, cur) => acc + cur.count, offset);
     },
     updateSelectedPrefCodes(prefCode, isChecked) {
       if (isChecked) {
@@ -73,8 +96,16 @@ h2 {
   font-size: 1.5rem;
 }
 #areas-container {
-  display: grid;
+  /* display: grid; */
+  display: flex;
+  flex-direction: column;
   padding: 0.4rem;
+  gap: 5px;
+}
+
+.half-of-areas {
+  display: flex;
+  flex-direction: column;
   gap: 5px;
 }
 .area {
@@ -88,6 +119,7 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 /* hiding layout under the area wrapper */
@@ -124,13 +156,30 @@ h2 {
 .menu-icon.rotated {
   transform: rotate(180deg);
 }
-
+/* no sticky hover */
 @media (hover: hover) {
   .menu-icon.rotatedd:hover {
     transform: rotate(180deg);
   }
   .area:hover .menu-icon {
     transform: rotate(180deg);
+  }
+}
+/* two rows for areas on desktop */
+@media screen and (min-width: 769px) {
+  #areas-container {
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  #areas-container > * {
+    flex-basis: calc(50% - 5px);
+    min-width: 0;
+  }
+
+  .area-wrapper {
+    max-width: 50vw;
   }
 }
 </style>

@@ -1,24 +1,26 @@
 # prefecture-population
 
-## Project setup
+[Hosted Live with Vercel](https://prefecture-population-d933v3h2r-caslindens-projects.vercel.app/)
+
+## Component Structure - コンポーネント構造 
+
 ```
-npm install
+App.vue
+│
+├── SiteHeader.vue
+│
+└── PopulationFetcher.vue
+    │
+    ├── PopulationChart.vue
+    │   │
+    │   ├── PopulationTypeToggle.vue
+    │   │
+    │   └── Chart.js Canvas
+    │
+    └── AreaTrays.vue
+        │
+        └── CheckboxTray
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Data from: [RESAS API](https://opendata.resas-portal.go.jp/docs/api/v1/index.html)
