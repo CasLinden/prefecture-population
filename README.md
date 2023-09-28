@@ -1,6 +1,6 @@
 # 都道府県人口　 prefecture-population
 
-[Hosted Live with Vercel](https://prefecture-population-d933v3h2r-caslindens-projects.vercel.app/)
+[Hosted Live with Vercel](https://prefecture-population-delta.vercel.app/)
 
 ## コンポーネント構造   Component Structure 
 
@@ -19,7 +19,7 @@ App.vue
     │
     └── AreaTrays.vue
         │
-        └── CheckboxTray
+        └── CheckboxTray.vue
 ```
 
 
