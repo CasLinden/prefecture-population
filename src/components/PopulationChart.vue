@@ -54,13 +54,13 @@ export default {
   },
   computed: {
     filteredChartData() {
+      // if statement for security, not sure if it ever passes
       if (!this.currentType || !this.chartData.datasets) {
         return this.chartData;
       }
       const filteredDatasets = this.chartData.datasets.filter(
         (dataset) => dataset.populationDataType === this.currentType
       );
-
       return {
         ...this.chartData,
         datasets: filteredDatasets,

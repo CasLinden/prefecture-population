@@ -20,7 +20,9 @@ import AreaTrays from "./AreaTrays.vue";
 export default {
   data() {
     return {
+      // dataForChart will be a Proxy Object, modified by handlePrefectureToggled() and fetchPopulationData()
       dataForChart: null,
+      // 1 = Hokkaido (we show the Hokkaido graph by default)
       selectedPrefCode: 1,
       loading: false,
       prefectures,
@@ -32,6 +34,8 @@ export default {
         this.selectedPrefCode = prefCode;
         this.fetchPopulationData();
       } else {
+        // we "reset" dataForChart completely, using the spread operator
+        // if we only update datasets, vue does not rerender the chart
         this.dataForChart = {
           ...this.dataForChart,
           datasets: this.dataForChart.datasets.filter(
@@ -56,7 +60,7 @@ export default {
         }
 
         const data = await response.json();
-        // immidately prep and update the chart data:
+        // prep and update the chart data:
         const preparedData = this.prepareDataForChart(data);
         this.updateChartData(preparedData);
       } catch (error) {
@@ -77,13 +81,15 @@ export default {
         .slice(0, 14);
 
       const datasets = populationTypes.map((type) => {
+        // separate the data per type
         const populationTypeData = data.result.data.find(
           (item) => item.label === type
         );
+        // prep the data we want for each type
         const population = populationTypeData.data
           .map((item) => item.value)
           .slice(0, 14);
-
+        // return four different datasets
         return {
           label: `${prefectures[this.selectedPrefCode - 1].name}`,
           data: population,
@@ -103,6 +109,7 @@ export default {
       if (!this.dataForChart) {
         this.dataForChart = preparedData;
       } else {
+        // vue seems to notice that dataForChart changed on .push, so we don't need to "reset" the dataForChart object
         this.dataForChart.datasets.push(...preparedData.datasets);
       }
     },

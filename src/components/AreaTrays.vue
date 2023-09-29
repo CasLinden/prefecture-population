@@ -6,6 +6,7 @@
       :key="halfAreas[0].name"
       class="half-of-areas"
     >
+      <!-- title, icon and CheckboxTray for each area -->
       <div
         v-for="(area, index) in halfAreas"
         :key="area.name"
@@ -46,6 +47,7 @@ export default {
       areas: areas,
       prefectures: prefectures,
       selectedPrefCodes: [1],
+      // Hokkaido tray is open by default, and checked in CheckboxTray
       showingTrays: { 北海道: true },
       trayHeights: {},
       menuUpIcon:
@@ -62,19 +64,20 @@ export default {
   },
   methods: {
     toggleTray(areaName) {
+      // if showingTrays[areaName] doesn't exist, it's created here
       this.showingTrays[areaName] = !this.showingTrays[areaName];
     },
     calculateStartIndex(index, halfAreas) {
       const isFirstHalf = halfAreas === this.firstHalfAreas;
-      // calculate offset, 0 for first half, should be 23 for second
-      const offset = isFirstHalf
-        ? 0
-        : this.firstHalfAreas.reduce((acc, cur) => acc + cur.count, 0);
+      // calculate offset, 0 for first half, 23 for second
+      const offset = isFirstHalf ? 0 : 23;
+      // calculate the starting index based on count in areas
       return halfAreas
         .slice(0, index)
         .reduce((acc, cur) => acc + cur.count, offset);
     },
     updateSelectedPrefCodes(prefCode, isChecked) {
+      // isChecked for adding, else for removing
       if (isChecked) {
         this.selectedPrefCodes.push(prefCode);
       } else {
@@ -145,7 +148,7 @@ h2 {
     transform: rotate(180deg);
   }
 }
-/* two rows for areas on desktop */
+/* two columns for AreaTrays on desktop */
 @media screen and (min-width: 769px) {
   #areas-container {
     flex-wrap: wrap;
