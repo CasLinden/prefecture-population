@@ -22,6 +22,14 @@ Vercelへデプロイ: 5分
 
 合計作業時間（おおよその見積もり）: 15.5時間
 
+これまでの総合的なプログラミング歴:
+The Odin Projectで独学によりフルスタックのウェブ開発を学びました。このプログラムはJavaScriptの基礎とCSSに強く焦点を当てています。HTMLからReact、Node.js、MongoDBまで多岐に渡る技術を習得しました。プログラムは主に個人でのコーディング経験を提供していますが、ベストプラクティス、コードの可読性、バージョンコントロールに重点を置いており、学生が他の開発者とチームで作業する準備をしています。
+
+これまでのWEBフロントエンドプログラミング歴:
+私のポートフォリオウェブサイトの開発を通じて、フロントエンド開発の技術をさらに深めました。詳細は私のポートフォリオをご覧ください。[こちらからポートフォリオへアクセスできます](https://caslinden.github.io/portfolio-website/)。
+
+
+
 Study Vue.js (YouTube): 90 minutes
 Vue create (JavaScript, ESLint, Prettier): 15 minutes
 Added SiteHeader.vue, 初めての vue component: 15 minutes
@@ -45,13 +53,3 @@ Deploy to Vercel: 5 minutes
 Checked code, added comments: 60 minutes
 
 Time spent (rough estimate): 15.5 hours
-
-
-
-
-
-
-
-
-
-
