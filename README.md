@@ -25,7 +25,7 @@ App.vue
 
 Data from: [RESAS API](https://opendata.resas-portal.go.jp/docs/api/v1/index.html)
 
-## このプロジェクトについて  Aout this project
+## このプロジェクトについて  About this project
 
 
 このプロジェクトは、フロントエンドスキルを示すための課題として作成されました。RESAS APIからデータを取得し、日本の47都道府県の人口データの折れ線グラフをレスポンシブに表示します。[Vue.js](https://vuejs.org/)（プログレッシブJavaScriptフレームワーク）を使用して作成されました。チャートは[chart.js](https://www.chartjs.org/)を用いて生成されています。
